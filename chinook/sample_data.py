@@ -1,9 +1,10 @@
 """ Module used to load sample CSV data """
 
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 
-SAMPLES_DIR = Path(__file__).parent.parent / "samples"
+
+SAMPLES_DIR = Path(__file__).parent / "samples"
 
 
 def load_album_data() -> pd.DataFrame:
