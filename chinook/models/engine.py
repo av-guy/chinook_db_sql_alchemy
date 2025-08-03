@@ -11,6 +11,7 @@ Functions
 create_db_engine(sql_config: ISQLAlchemyConfig) -> Engine
     Creates and returns a SQLAlchemy Engine using the provided connection string.
 """
+
 from typing import Optional
 
 from kink import inject

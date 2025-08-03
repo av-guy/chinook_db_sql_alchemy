@@ -42,3 +42,6 @@ class MediaTypes(BASE):
         primary_key=True, autoincrement=True)
 
     name: Mapped[str] = mapped_column(String(120))
+
+    def __repr__(self) -> str:
+        return f"<MediaTypes(media_type_id={self.media_type_id}, name='{self.name}')>"

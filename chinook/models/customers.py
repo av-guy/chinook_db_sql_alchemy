@@ -86,3 +86,10 @@ class Customers(BASE):
     email: Mapped[str] = mapped_column(String(60), nullable=True)
     support_rep_id: Mapped[int] = mapped_column(ForeignKey(
         "employees.employee_id"), index=True, nullable=True)
+
+    def __repr__(self) -> str:
+        return (
+            f"<Customers(customer_id={self.customer_id}, "
+            f"name='{self.first_name} {self.last_name}', "
+            f"email='{self.email}')>"
+        )

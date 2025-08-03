@@ -76,3 +76,10 @@ class Tracks(BASE):
     milliseconds: Mapped[int] = mapped_column()
     total_bytes: Mapped[int] = mapped_column()
     unit_price: Mapped[float] = mapped_column()
+
+    def __repr__(self) -> str:
+        return (
+            f"<Tracks(track_id={self.track_id}, name='{self.name}', "
+            f"album_id={self.album_id}, media_type_id={self.media_type_id}, "
+            f"genre_id={self.genre_id}, unit_price={self.unit_price})>"
+        )

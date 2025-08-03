@@ -35,3 +35,6 @@ class Playlists(BASE):
         primary_key=True, autoincrement=True)
 
     name: Mapped[str] = mapped_column(String(120))
+
+    def __repr__(self) -> str:
+        return f"<Playlists(playlist_id={self.playlist_id}, name='{self.name}')>"

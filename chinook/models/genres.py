@@ -39,3 +39,6 @@ class Genres(BASE):
 
     genre_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(120))
+
+    def __repr__(self) -> str:
+        return f"<Genres(genre_id={self.genre_id}, name='{self.name}')>"

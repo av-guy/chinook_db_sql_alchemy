@@ -51,3 +51,11 @@ class InvoiceItems(BASE):
     track_id: Mapped[int] = mapped_column(ForeignKey("tracks.track_id"), index=True)
     unit_price: Mapped[float] = mapped_column()
     quantity: Mapped[int] = mapped_column()
+
+
+    def __repr__(self) -> str:
+        return (
+            f"<InvoiceItems(invoice_line_id={self.invoice_line_id}, "
+            f"invoice_id={self.invoice_id}, track_id={self.track_id}, "
+            f"unit_price={self.unit_price}, quantity={self.quantity})>"
+        )

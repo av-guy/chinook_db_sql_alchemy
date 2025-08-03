@@ -18,11 +18,10 @@ from .playlists import Playlists
 from .playlist_track import PlaylistTrack
 
 
-def init_db():
+def init_db() -> Engine:
     """ Initialize the SQLAlchemy engine and create the database """
     base = di[DeclarativeBase]
-
     engine = create_db_engine()
-    di[Engine] = engine
 
     base.metadata.create_all(engine)
+    return engine

@@ -42,3 +42,6 @@ class Artists(BASE):
         primary_key=True, autoincrement=True)
 
     name: Mapped[str] = mapped_column(String(120))
+
+    def __repr__(self) -> str:
+        return f"<Artists(artist_id={self.artist_id}, name='{self.name}')>"

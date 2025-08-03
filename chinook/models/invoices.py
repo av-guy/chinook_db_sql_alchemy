@@ -14,7 +14,7 @@ Invoices
 from datetime import datetime
 
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
-from sqlalchemy import String, DateTime, ForeignKey
+from sqlalchemy import String, ForeignKey
 
 from kink import di
 
@@ -36,7 +36,7 @@ class Invoices(BASE):
     customer_id : Mapped[int]
         Foreign key referencing `customers.customer_id`.
 
-    invoice_date : Mapped[DateTime]
+    invoice_date : Mapped[datetime]
         Date and time the invoice was issued.
 
     billing_address : Mapped[str]
@@ -69,3 +69,11 @@ class Invoices(BASE):
     billing_country: Mapped[str] = mapped_column(String(40), nullable=True)
     billing_postal_code: Mapped[str] = mapped_column(String(10), nullable=True)
     total: Mapped[float] = mapped_column()
+
+    def __repr__(self) -> str:
+        return (
+            f"<Invoices(invoice_id={self.invoice_id}, "
+            f"customer_id={self.customer_id}, "
+            f"invoice_date={self.invoice_date.isoformat()}, "
+            f"total={self.total})>"
+        )

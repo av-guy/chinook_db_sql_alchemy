@@ -36,3 +36,6 @@ class PlaylistTrack(BASE):
 
     track_id: Mapped[int] = mapped_column(
         ForeignKey("tracks.track_id"), primary_key=True, index=True)
+
+    def __repr__(self) -> str:
+        return f"<PlaylistTrack(playlist_id={self.playlist_id}, track_id={self.track_id})>"

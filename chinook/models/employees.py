@@ -9,13 +9,14 @@ details and organizational hierarchy through a self-referencing manager field.
 Classes
 -------
 Employees
-    ORM model for the `employees` table, representing staff members and their reporting structure.
+    ORM model for the `employees` table, representing staff members and their
+    reporting structure.
 """
 
 from datetime import datetime
 
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
-from sqlalchemy import String, DateTime, ForeignKey
+from sqlalchemy import String, ForeignKey
 
 from kink import di
 
@@ -46,10 +47,10 @@ class Employees(BASE):
     reports_to : Mapped[int]
         Optional foreign key referencing `employees.employee_id`, indicating the employee's manager.
 
-    birth_date : Mapped[DateTime]
+    birth_date : Mapped[datetime]
         Date of birth of the employee.
 
-    hire_date : Mapped[DateTime]
+    hire_date : Mapped[datetime]
         Date the employee was hired.
 
     address : Mapped[str]
@@ -96,3 +97,10 @@ class Employees(BASE):
     phone: Mapped[str] = mapped_column(String(24))
     fax: Mapped[str] = mapped_column(String(24))
     email: Mapped[str] = mapped_column(String(60))
+
+    def __repr__(self) -> str:
+        return (
+            f"<Employees(employee_id={self.employee_id}, "
+            f"name='{self.first_name} {self.last_name}', "
+            f"title='{self.title}', email='{self.email}')>"
+        )

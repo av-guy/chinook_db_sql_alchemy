@@ -42,4 +42,9 @@ class Albums(BASE):
 
     album_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     title: Mapped[str] = mapped_column(String(160))
-    artist_id: Mapped[int] = mapped_column(ForeignKey("artists.artist_id"), index=True)
+
+    artist_id: Mapped[int] = mapped_column(
+        ForeignKey("artists.artist_id"), index=True)
+
+    def __repr__(self) -> str:
+        return f"<Albums(album_id={self.album_id}, title='{self.title}', artist_id={self.artist_id})>"
