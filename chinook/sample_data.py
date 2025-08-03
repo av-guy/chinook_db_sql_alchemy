@@ -1,6 +1,9 @@
 """ Module used to load sample CSV data """
 
 import pandas as pd
+from pathlib import Path
+
+SAMPLES_DIR = Path(__file__).parent.parent / "samples"
 
 
 def load_album_data() -> pd.DataFrame:
@@ -12,7 +15,7 @@ def load_album_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing albums with columns: 'album_id', 'title', 'artist_id'.
     """
-    albums = pd.read_csv(".\\samples\\albums.csv")
+    albums = pd.read_csv(SAMPLES_DIR / "albums.csv")
 
     albums.rename(columns={
         "AlbumId": "album_id",
@@ -32,7 +35,7 @@ def load_artist_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing artists with columns: 'artist_id', 'name'.
     """
-    artists = pd.read_csv(".\\samples\\artists.csv")
+    artists = pd.read_csv(SAMPLES_DIR / "artists.csv")
 
     artists.rename(columns={
         "ArtistId": "artist_id",
@@ -53,7 +56,7 @@ def load_customer_data() -> pd.DataFrame:
         'customer_id', 'first_name', 'last_name', 'company', 'address',
         'city', 'state', 'country', 'postal_code', 'phone', 'fax', 'email', 'support_rep_id'.
     """
-    customers = pd.read_csv(".\\samples\\customers.csv")
+    customers = pd.read_csv(SAMPLES_DIR / "customers.csv")
 
     customers.rename(columns={
         "CustomerId": "customer_id",
@@ -83,7 +86,7 @@ def load_genre_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing genres with columns: 'genre_id', 'name'.
     """
-    genres = pd.read_csv(".\\samples\\genres.csv")
+    genres = pd.read_csv(SAMPLES_DIR / "genres.csv")
 
     genres.rename(columns={
         "GenreId": "genre_id",
@@ -104,7 +107,7 @@ def load_invoice_data() -> pd.DataFrame:
         'invoice_id', 'customer_id', 'invoice_date', 'billing_address', 'billing_city',
         'billing_state', 'billing_country', 'billing_postal_code', 'total'.
     """
-    invoices = pd.read_csv(".\\samples\\invoices.csv")
+    invoices = pd.read_csv(SAMPLES_DIR / "invoices.csv")
 
     invoices.rename(columns={
         "InvoiceId": "invoice_id",
@@ -133,7 +136,7 @@ def load_invoice_item_data() -> pd.DataFrame:
         DataFrame containing invoice items with columns:
         'invoice_line_id', 'invoice_id', 'track_id', 'unit_price', 'quantity'.
     """
-    invoice_items = pd.read_csv(".\\samples\\invoice_items.csv")
+    invoice_items = pd.read_csv(SAMPLES_DIR / "invoice_items.csv")
 
     invoice_items.rename(columns={
         "InvoiceLineId": "invoice_line_id",
@@ -155,7 +158,7 @@ def load_media_type_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing media types with columns: 'media_type_id', 'name'.
     """
-    media_types = pd.read_csv(".\\samples\\media_types.csv")
+    media_types = pd.read_csv(SAMPLES_DIR / "media_types.csv")
 
     media_types.rename(columns={
         "MediaTypeId": "media_type_id",
@@ -174,7 +177,7 @@ def load_playlist_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing playlists with columns: 'playlist_id', 'name'.
     """
-    playlists = pd.read_csv(".\\samples\\playlists.csv")
+    playlists = pd.read_csv(SAMPLES_DIR / "playlists.csv")
 
     playlists.rename(columns={
         "PlaylistId": "playlist_id",
@@ -193,7 +196,7 @@ def load_playlist_track_data() -> pd.DataFrame:
     pd.DataFrame
         DataFrame containing playlist-track mappings with columns: 'playlist_id', 'track_id'.
     """
-    playlist_track = pd.read_csv(".\\samples\\playlist_track.csv")
+    playlist_track = pd.read_csv(SAMPLES_DIR / "playlist_track.csv")
 
     playlist_track.rename(columns={
         "PlaylistId": "playlist_id",
@@ -214,7 +217,7 @@ def load_track_data() -> pd.DataFrame:
         'track_id', 'name', 'album_id', 'media_type_id', 'genre_id',
         'composer', 'milliseconds', 'total_bytes', 'unit_price'.
     """
-    tracks = pd.read_csv(".\\samples\\tracks.csv")
+    tracks = pd.read_csv(SAMPLES_DIR / "tracks.csv")
 
     tracks.rename(columns={
         "TrackId": "track_id",
@@ -233,7 +236,7 @@ def load_track_data() -> pd.DataFrame:
 
 def load_employees_data() -> pd.DataFrame:
     """Load sample employee data from CSV."""
-    employees = pd.read_csv(".\\samples\\employees.csv")
+    employees = pd.read_csv(SAMPLES_DIR / "employees.csv")
 
     employees.rename(columns={
         "EmployeeId": "employee_id",
